@@ -134,34 +134,40 @@
 
 #define MAG_DATA_LEN    6
 
-    typedef enum 
-                {  
-                IMU_EN_SENSOR_TYPE_NULL = 0,
-                IMU_EN_SENSOR_TYPE_ICM20948,
-                IMU_EN_SENSOR_TYPE_MAX
-                }IMU_EN_SENSOR_TYPE;
+   typedef enum 
+{  
+  IMU_EN_SENSOR_TYPE_NULL = 0,
+  IMU_EN_SENSOR_TYPE_ICM20948,
+  IMU_EN_SENSOR_TYPE_MAX
+}IMU_EN_SENSOR_TYPE;
 
+typedef struct imu_st_sensor_reg_data_tag
+{
+  int16_t s16X;
+  int16_t s16Y;
+  int16_t s16Z;
+}IMU_ST_SENSOR_REG_DATA;
 
+typedef struct imu_st_angles_data_tag
+{
+  float fYaw;
+  float fPitch;
+  float fRoll;
+}IMU_ST_ANGLES_DATA;
 
-    struct IMU_ST_SENSOR_REG_DATA {
-        int16_t s16X;
-        int16_t s16Y;
-        int16_t s16Z;
-    };
-    struct IMU_ST_ANGLES_DATA {
-        float fRoll;
-        float fPitch;
-        float fYaw;
-    };
-    struct IMU_ST_SENSOR_DATA {
-        float fX;
-        float fY;
-        float fZ;
-    };
-    struct ICM20948_ST_AVG_DATA{
-        uint8_t u8Index;
-        int16_t s16AvgBuffer[8];
-    };
+typedef struct imu_st_sensor_data_tag
+{
+  float fX;
+  float fY;
+  float fZ;
+}IMU_ST_SENSOR_DATA;
+
+typedef struct icm20948_st_avg_data_tag
+{
+  uint8_t u8Index;
+  int16_t s16AvgBuffer[8];
+}ICM20948_ST_AVG_DATA;
+
 
     void imuInit(IMU_EN_SENSOR_TYPE *penMotionSensorType);
     void imuDataGet(IMU_ST_ANGLES_DATA *pstAngles, 
