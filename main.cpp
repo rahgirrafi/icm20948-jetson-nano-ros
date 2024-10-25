@@ -8,11 +8,11 @@
  
 int main(int argc, char **argv)
 {
-	// ros::init(argc, argv, "icm20948_node");
-	// ros::NodeHandle nh;
+	ros::init(argc, argv, "icm20948_node");
+	ros::NodeHandle nh;
 
-	// ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("imu", 20);
-	// ros::Publisher mag_pub = nh.advertise<sensor_msgs::MagneticField>("magnetic_field", 1);
+	ros::Publisher imu_pub = nh.advertise<sensor_msgs::Imu>("imu", 20);
+	ros::Publisher mag_pub = nh.advertise<sensor_msgs::MagneticField>("magnetic_field", 1);
 	
 	IMU_EN_SENSOR_TYPE enMotionSensorType;
 	IMU_ST_ANGLES_DATA stAngles;
@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 		printf("Motion sensor NULL\n");
 		return -1;
 	}
-	// ros::Rate loop_rate(20);
+	ros::Rate loop_rate(20);
 
 	while(1)
 	{
