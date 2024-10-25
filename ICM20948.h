@@ -8,8 +8,8 @@
   ***************************************************************************
   */
 
-#ifndef __ICM20948_H__
-#define __ICM20948_H__
+#ifndef ICM20948_H
+#define ICM20948_H
 
 #include <iostream>
 #include <unistd.h>
