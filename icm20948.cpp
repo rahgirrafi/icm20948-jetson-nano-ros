@@ -44,7 +44,7 @@ void I2C_WriteOneByte(uint8_t DevAddr, uint8_t RegAddr, uint8_t value)
     printf("Failed to acquire bus access and/or talk to slave.\n");
     return;
   }
-  buf = new int8_t[2];
+  buf = new int8_t(2);
   buf[0] = RegAddr;
   buf[1] = value;
   write(fd, buf, 2);
