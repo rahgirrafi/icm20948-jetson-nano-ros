@@ -11,6 +11,21 @@
 
 #include "ICM20948.h"
 
+IMU_ST_SENSOR_REG_DATA gstGyroOffset ={0,0,0};
+    void imuAHRSupdate(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz);
+    float invSqrt(float x);
+    void icm20948init(void);
+    bool icm20948Check(void);
+    void icm20948GyroRead(int16_t* ps16X, int16_t* ps16Y, int16_t* ps16Z);
+    void icm20948AccelRead(int16_t* ps16X, int16_t* ps16Y, int16_t* ps16Z);
+    void icm20948MagRead(int16_t* ps16X, int16_t* ps16Y, int16_t* ps16Z);
+    bool icm20948MagCheck(void);
+    void icm20948CalAvgValue(uint8_t *pIndex, int16_t *pAvgBuffer, int16_t InVal, int32_t *pOutVal);
+    void icm20948GyroOffset(void);
+    void icm20948ReadSecondary(uint8_t u8I2CAddr, uint8_t u8RegAddr, uint8_t u8Len, uint8_t *pu8data);
+    void icm20948WriteSecondary(uint8_t u8I2CAddr, uint8_t u8RegAddr, uint8_t u8data);
+    bool icm20948Check(void);
+
 #define IIC_Dev  "/dev/i2c-1"
 int fd;
 
